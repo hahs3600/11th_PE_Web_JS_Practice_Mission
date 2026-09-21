@@ -1,13 +1,41 @@
-export default function App() {
-  const movieTitle = "스파이더맨: 브랜드 뉴 데이";
-  const genre = "슈퍼히어로";
-  const releaseDate = "2026.07.29";
+/*
+컴포넌트 부모-자식 관계
 
+App
+├── Header
+└── MovieList
+    ├── MovieCard
+    └── MovieCard
+*/
+
+function Header() {
+  return <h1>영화 목록</h1>;
+}
+
+function MovieCard() {
   return (
-    <article className="movie-card">
-      <h1>{movieTitle}</h1>
-      <p>장르: {genre}</p>
-      <p>개봉일: {releaseDate}</p>
+    <article>
+      <h2>스파이더맨: 브랜드 뉴 데이</h2>
+      <p>장르: 슈퍼히어로</p>
+      <p>개봉일: 2026.07.29</p>
     </article>
+  );
+}
+
+function MovieList() {
+  return (
+    <>
+      <MovieCard />
+      <MovieCard />
+    </>
+  );
+}
+
+export default function App() {
+  return (
+    <>
+      <Header />
+      <MovieList />
+    </>
   );
 }
